@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Airline demand intelligence</title><link rel="stylesheet" href="dashboard.css"></head>
+<body><header><div class="eyebrow">Business intelligence case study · Airline</div><h1 id="title"></h1><p id="subtitle"></p></header>
+<main class="wrap"><div id="filters" class="filters"></div><div id="count" class="eyebrow" style="margin-bottom:14px"></div><section id="cards" class="cards"></section><section class="grid"><article class="panel"><h2 id="chart-title-0"></h2><p id="chart-desc-0"></p><div id="chart-0" class="chart"></div></article><article class="panel"><h2 id="chart-title-1"></h2><p id="chart-desc-1"></p><div id="chart-1" class="chart"></div></article></section><aside class="note">Interpretation: historic demand has trend and seasonality; values are in thousands. The dataset is a teaching sample, not current airline demand.<br>Public data: <a id="source" target="_blank" rel="noopener"></a>. Filter selections recalculate every KPI and chart.</aside></main><footer>Portfolio demonstration · descriptive analysis, not a forecast or production metric</footer>
+<script src="data.js"></script><script>window.APP={title:"Airline demand intelligence",subtitle:"Explore historic monthly passenger demand from 1949 to 1960. Select a year to inspect seasonality and compare annual volume.",filters:[{key:'year',label:'Year',sort:(a,b)=>+a-+b}],cards:[
+{label:'Passenger volume',calc:r=>r.reduce((s,x)=>s+x.passengers,0),note:'Sum of monthly values (thousands)'},
+{label:'Average month',calc:r=>r.length?r.reduce((s,x)=>s+x.passengers,0)/r.length:0,note:'Passengers, thousands per month'},
+{label:'Peak month',calc:r=>r.length?Math.max(...r.map(x=>x.passengers)):0,note:'Passengers, thousands'},
+{label:'Months selected',calc:r=>r.length,note:'Monthly observations'}
+],charts:[
+{key:'year',title:'Annual passenger volume',description:'Sum of reported monthly passengers, in thousands.',type:'line',calc:r=>r.reduce((s,x)=>s+x.passengers,0)},
+{key:'month',title:'Seasonal demand by month',description:'Average monthly passengers across selected years, in thousands.',type:'bar',sort:(a,b)=>['January','February','March','April','May','June','July','August','September','October','November','December'].indexOf(a)-['January','February','March','April','May','June','July','August','September','October','November','December'].indexOf(b),calc:r=>r.reduce((s,x)=>s+x.passengers,0)/r.length}
+],source:"https://github.com/mwaskom/seaborn-data/blob/master/flights.csv",sourceLabel:"AirPassengers sample via seaborn-data",unit:"months"};</script><script src="dashboard.js"></script></body></html>
