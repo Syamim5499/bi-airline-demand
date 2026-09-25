@@ -10,4 +10,4 @@
 ],charts:[
 {key:'year',title:'Annual passenger volume',description:'Sum of reported monthly passengers, in thousands.',type:'line',calc:r=>r.reduce((s,x)=>s+x.passengers,0)},
 {key:'month',title:'Seasonal demand by month',description:'Average monthly passengers across selected years, in thousands.',type:'bar',sort:(a,b)=>['January','February','March','April','May','June','July','August','September','October','November','December'].indexOf(a)-['January','February','March','April','May','June','July','August','September','October','November','December'].indexOf(b),calc:r=>r.reduce((s,x)=>s+x.passengers,0)/r.length}
-],source:"https://github.com/mwaskom/seaborn-data/blob/master/flights.csv",sourceLabel:"AirPassengers sample via seaborn-data",unit:"months"};</script><script src="dashboard.js"></script></body></html>
+],source:"https://github.com/mwaskom/seaborn-data/blob/master/flights.csv",sourceLabel:"AirPassengers sample via seaborn-data",unit:"months"};</script><script src="dashboard.js?v=2"></script></body></html>
