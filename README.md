@@ -6,6 +6,8 @@ Interactive, static BI case study using the public **AirPassengers / seaborn fli
 How did passenger volume change from 1949 to 1960, and which months show recurring seasonal peaks?
 
 ## Dashboard
+[Open the live dashboard](https://syamim5499.github.io/bi-airline-demand/).
+
 Open [index.html](index.html) in a browser. No install, server, account, or API key is needed. The Year filter updates four KPIs, annual trend, and monthly seasonality chart. Hover on chart marks to inspect values.
 
 ## Findings from the supplied sample
